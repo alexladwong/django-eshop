@@ -1,0 +1,95 @@
+{% extends 'cart/base.html' %} {% block content %}
+
+<!-- Quantity and Price Section -->
+<title>My Cart</title>
+<div class="container" style="width: 70%">
+  <table class="table table-light table-hover">
+    <thead>
+      <tr>
+        <th scope="col">
+          <a href="{% url 'store' %}">
+          <button type="button" class="btn btn-success btn-lg">
+            Continue Shopping →
+          </button>
+        </th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">
+          <h3><strong>Items: {{cart.quantity}} </strong></h3>
+        </th>
+        <td></td>
+        <td>
+          <h3><strong>Total: 0 UGX</strong></h3>
+        </td>
+        <!-- <td></td> -->
+
+        <td>
+          <a href="{% url 'checkout' %}">
+            <button type="button" class="btn btn-success btn-lg">
+              Checkout →
+            </button></a
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Cart Section -->
+<div class="container" style="margin-top: 50px; width: 70%">
+  <table class="table table-light table-hover">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">
+          <h3><strong>Item</strong></h3>
+        </th>
+        <th scope="col">
+          <h3><strong>Price</strong></h3>
+        </th>
+        <th scope="col">
+          <h3><strong>Quantity</strong></h3>
+        </th>
+        <th scope="col">
+          <h3><strong>Total</strong></h3>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in cartitems %}
+      <tr>
+        <th scope="row">
+          <div id="cart_image"><img src="{{item.product.image.url}}" /></div>
+        </th>
+        <td><h4>{{item.product.name}}</h4></td>
+        <td><h4>{{item.product.price}} UGX</h4></td>
+        <td>
+          <input
+            type="number"
+            data-product="{{item.product.product_id}}"
+            class="quantity"
+            value="{{item.quantity}}"
+            style="width: 50px; padding-left: 5px"
+          />
+        </td>
+        <td><h3>{{item.subtotal | floatformat:2}} UGX</h3></td>
+      </tr>
+      {% endfor %}
+      <tr>
+        <th scope="row"><div id="cart_image"></div></th>
+        <td><h3></h3></td>
+        <td><h3></h3></td>
+        <td></td>
+        <td id="total">
+          <h3><strong>{{cart.grandtotal | floatformat:2}} UGX</strong></h34>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endblock %}
