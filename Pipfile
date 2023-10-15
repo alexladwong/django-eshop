@@ -1,0 +1,34 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+asgiref = "==3.6.0"
+click = "==7.1.2"
+colorama = "==0.4.6"
+commonmark = "==0.9.1"
+crispy-bootstrap5 = "==0.7"
+django = "==4.1.4"
+django-crispy-forms = "==2.0"
+djangorestframework = "==3.14.0"
+djangorestframework-jwt = "==1.11.0"
+netcat = "==0.0.1a0"
+numpy = "==1.24.0"
+pillow = "==10.0.1"
+pnpm = "==1.0.14"
+pygments = "==2.13.0"
+pyjwt = "==1.7.1"
+pytz = "==2023.3.post1"
+pyyaml = "==5.4.1"
+rglob = "==1.7"
+rich = "==9.13.0"
+speedtest = "==0.0.1"
+sqlparse = "==0.4.3"
+typing-extensions = "==3.10.0.2"
+whitenoise = "==6.5.0"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"
